@@ -1,41 +1,81 @@
 {
-    "users": [
-        {
-            "id": "a197",
-            "role": "company",
-            "email": "juanda@gmail.com",
-            "password": "123",
-            "name": "juan",
-            "lastname": "",
-            "companyname": "111",
-            "description": "11"
-        },
-        {
-            "id": "154a",
-            "role": "candidate",
-            "email": "eeee@gmail.com",
-            "password": "123",
-            "name": "eeee",
-            "lastname": "",
-            "candidateProfile": {
-                "title": "",
-                "skills": [],
-                "openToWork": true
-            }
-        },
-        {
-            "id": "759d",
-            "role": "candidate",
-            "email": "pedrito@gmail.com",
-            "password": "123",
-            "name": "pedrito",
-            "candidateProfile": {
-                "title": "",
-                "skills": [],
-                "openToWork": true
-            }
-        }
-    ],
-    "jobs": [],
-    "matches": []
+  "users": [
+    {
+      "id": "a197",
+      "role": "company",
+      "email": "juanda@gmail.com",
+      "password": "123",
+      "name": "juan",
+      "lastname": "",
+      "companyname": "111",
+      "description": "11"
+    },
+    {
+      "id": "154a",
+      "role": "candidate",
+      "email": "eeee@gmail.com",
+      "password": "123",
+      "name": "eeee",
+      "lastname": "",
+      "candidateProfile": {
+        "title": "Frontend Developer",
+        "skills": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "yearsOfExperience": "5",
+        "openToWork": true,
+        "city": "Medellín",
+        "birthdate": "2000-01-15",
+        "phone": "+549111111111"
+      }
+    },
+    {
+      "id": "759d",
+      "role": "candidate",
+      "email": "pedrito@gmail.com",
+      "password": "123",
+      "name": "pedrito",
+      "candidateProfile": {
+        "title": "Analisis de Datos",
+        "city": "Medellin",
+        "yearsOfExperience": "4",
+        "birthdate": "2005-12-22",
+        "phone": "2063446",
+        "skills": [
+          "JavaScript",
+          "node",
+          "HTML"
+        ],
+        "openToWork": true
+      }
+    }
+  ],
+  "jobs": [
+    {
+      "id": "j1",
+      "companyId": "a197",
+      "companyName": "Tech Innovations",
+      "title": "Junior Web Designer",
+      "description": "Buscamos diseñador con conocimientos en UI/UX.",
+      "skills": [
+        "Figma",
+        "CSS",
+        "HTML"
+      ],
+      "status": "active"
+    }
+  ],
+  "matches": [
+    {
+      "id": "m2",
+      "companyId": "a197",
+      "jobId": "j1",
+      "candidateId": "759d",
+      "status": "pending",
+      "isReserved": true,
+      "reservationDate": "2026-01-30"
+    }
+  ]
 }

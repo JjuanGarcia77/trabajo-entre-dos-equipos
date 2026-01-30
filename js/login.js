@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (formLogin) {
+if (formLogin) {
         formLogin.addEventListener('submit', async (e) => {
             e.preventDefault();
             const emailInp = document.getElementById('userLogin').value.trim();
@@ -99,9 +99,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (data.length > 0) {
                     const user = data[0];
+                    
+                    // --- AQUÍ ESTABA EL ERROR: FALTABA GUARDAR currentUser ---
                     localStorage.setItem('isAuthenticated', 'true');
                     localStorage.setItem('userRole', user.role);
                     localStorage.setItem('userId', user.id);
+                    localStorage.setItem('currentUser', JSON.stringify(user)); // <--- ESTA LÍNEA ES LA CLAVE
+                    // ---------------------------------------------------------
 
                     Swal.fire({ icon: "success", title: `Bienvenido ${user.name}`, showConfirmButton: false, timer: 1500, heightAuto: false })
                     .then(() => {
