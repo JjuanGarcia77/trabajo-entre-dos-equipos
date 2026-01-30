@@ -189,3 +189,37 @@ body {
     color: white;
     transform: translateX(-5px); /* Efecto de retroceso */
 }
+
+/* Botón de Cerrar Sesión (Derecha) */
+.btn-logout {
+    background-color: var(--blanco);
+    color: var(--negro);
+    border: 2px solid var(--negro);
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #b02a37; /* Rojo al pasar el mouse */
+    color: white;
+    border-color: #b02a37;
+    transform: translateY(-2px);
+}
+
+/* El botón de Ir al Login (Izquierda) */
+.btn-back {
+    background-color: var(--marron);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-back:hover {
+    background-color: var(--negro);
+    transform: translateX(5px);
+}

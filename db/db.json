@@ -1,48 +1,41 @@
 {
     "users": [
         {
-            "id": "da30",
-            "username": "juanda",
-            "email": "aaaa@gmail.com",
-            "password": "123",
+            "id": "a197",
             "role": "company",
-            "companyName": "nice",
-            "companyDesc": "esdasdadsa"
+            "email": "juanda@gmail.com",
+            "password": "123",
+            "name": "juan",
+            "lastname": "",
+            "companyname": "111",
+            "description": "11"
         },
         {
-            "id": "d345",
-            "username": "eeee",
+            "id": "154a",
+            "role": "candidate",
             "email": "eeee@gmail.com",
             "password": "123",
-            "role": "user"
+            "name": "eeee",
+            "lastname": "",
+            "candidateProfile": {
+                "title": "",
+                "skills": [],
+                "openToWork": true
+            }
         },
         {
-            "id": "ebaa",
-            "username": "eeeee",
-            "email": "eeeee@gmail.com",
+            "id": "759d",
+            "role": "candidate",
+            "email": "pedrito@gmail.com",
             "password": "123",
-            "role": "user"
-        },
-        {
-            "id": "c117",
-            "username": "aa",
-            "email": "aa@gmail.com",
-            "password": "aa",
-            "role": "user"
-        },
-        {
-            "id": "3e4b",
-            "username": "fff",
-            "email": "fff@gmail.com",
-            "password": "123",
-            "role": "user"
-        },
-        {
-            "id": "b2f9",
-            "username": "dddd",
-            "email": "123@gmail.com",
-            "password": "123",
-            "role": "user"
+            "name": "pedrito",
+            "candidateProfile": {
+                "title": "",
+                "skills": [],
+                "openToWork": true
+            }
         }
-    ]
+    ],
+    "jobs": [],
+    "matches": []
 }
