@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000"; 
+const API_URL = "http://localhost:3000";
 let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -36,7 +36,7 @@ function initDashboard() {
 }
 
 // --- SISTEMA DE PESTAÑAS (TABS) ---
-window.switchTab = function(tabName) {
+window.switchTab = function (tabName) {
     // Ocultar todas las vistas
     document.querySelectorAll('.view-section').forEach(el => el.classList.add('d-none'));
     // Desactivar todos los botones del menú
@@ -44,16 +44,16 @@ window.switchTab = function(tabName) {
 
     // Mostrar vista seleccionada
     document.getElementById(`view-${tabName}`).classList.remove('d-none');
-    
+
     // Activar botón correspondiente (truco visual simple)
     const buttons = document.querySelectorAll('.menu-list button');
-    if(tabName === 'jobs') buttons[0].classList.add('active');
-    if(tabName === 'matches') buttons[1].classList.add('active');
-    if(tabName === 'profile') buttons[2].classList.add('active');
+    if (tabName === 'jobs') buttons[0].classList.add('active');
+    if (tabName === 'matches') buttons[1].classList.add('active');
+    if (tabName === 'profile') buttons[2].classList.add('active');
 
     // Recargar datos si es necesario
-    if(tabName === 'matches') loadMatches();
-    if(tabName === 'profile') populateProfileView();
+    if (tabName === 'matches') loadMatches();
+    if (tabName === 'profile') populateProfileView();
 };
 
 // --- LOGICA DE PERFIL Y SIDEBAR ---
@@ -64,7 +64,7 @@ function renderSidebarStatus() {
     const label = document.getElementById("statusLabel");
 
     toggle.checked = profile.openToWork;
-    
+
     if (profile.openToWork) {
         container.className = "status-box p-2 rounded text-center mb-4 status-active";
         label.innerText = "Estado: Visible";
@@ -76,7 +76,7 @@ function renderSidebarStatus() {
 
 function populateProfileView() {
     const profile = currentUser.candidateProfile || {};
-    
+
     // Vista de Lectura (Mi Cuenta)
     document.getElementById("profileNameDisplay").innerText = currentUser.name || "Usuario";
     document.getElementById("profileTitleDisplay").innerText = profile.title || "Sin título profesional";
@@ -107,34 +107,51 @@ function populateProfileView() {
 
 async function updateProfile(e) {
     e.preventDefault();
+
     const updatedProfile = {
         title: document.getElementById("profTitle").value,
         city: document.getElementById("profCity").value,
         yearsOfExperience: document.getElementById("profExp").value,
         birthdate: document.getElementById("profBirth").value,
         phone: document.getElementById("profPhone").value,
-        skills: document.getElementById("profSkills").value.split(",").map(s => s.trim()).filter(s => s !== ""),
+        skills: document.getElementById("profSkills").value
+            .split(",")
+            .map(s => s.trim())
+            .filter(Boolean),
         openToWork: document.getElementById("openToWorkToggle").checked
     };
 
     try {
+
+        await Swal.fire({
+            icon: "success",
+            title: "Guardado",
+            text: "Cambios aplicados correctamente",
+            timer: 2000,
+            showConfirmButton: false
+        });
+
         const response = await fetch(`${API_URL}/users/${currentUser.id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ candidateProfile: updatedProfile })
         });
 
-        if (response.ok) {
-            currentUser.candidateProfile = updatedProfile;
-            localStorage.setItem("currentUser", JSON.stringify(currentUser));
-            bootstrap.Modal.getInstance(document.getElementById('profileModal')).hide();
-            Swal.fire("¡Actualizado!", "Tu perfil ha sido modificado.", "success");
-            
-            renderSidebarStatus();
-            populateProfileView(); // Refrescar vista de Mi Cuenta
-        }
+        if (!response.ok) throw new Error("Error al actualizar");
+
+        currentUser.candidateProfile = updatedProfile;
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+        bootstrap.Modal
+            .getInstance(document.getElementById('profileModal'))
+            .hide();
+
+        renderSidebarStatus();
+        populateProfileView();
+
     } catch (error) {
-        console.error("Error update:", error);
+        console.error(error);
+        Swal.fire("Error", "No se pudo actualizar el perfil.", "error");
     }
 }
 
@@ -144,8 +161,8 @@ async function toggleOpenToWork() {
         await fetch(`${API_URL}/users/${currentUser.id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ 
-                candidateProfile: { ...currentUser.candidateProfile, openToWork: newState } 
+            body: JSON.stringify({
+                candidateProfile: { ...currentUser.candidateProfile, openToWork: newState }
             })
         });
         currentUser.candidateProfile.openToWork = newState;
@@ -191,7 +208,7 @@ async function loadJobs() {
 }
 
 // Función para abrir el Modal de Detalle
-window.viewJobDetail = async function(jobId) {
+window.viewJobDetail = async function (jobId) {
     try {
         const response = await fetch(`${API_URL}/jobs/${jobId}`);
         const job = await response.json();
@@ -199,7 +216,7 @@ window.viewJobDetail = async function(jobId) {
         document.getElementById("modalJobTitle").innerText = job.title;
         document.getElementById("modalJobCompany").innerText = job.companyName;
         document.getElementById("modalJobDesc").innerText = job.description || "Sin descripción detallada.";
-        
+
         const skillsContainer = document.getElementById("modalJobSkills");
         skillsContainer.innerHTML = job.skills ? job.skills.map(s => `<span class="badge bg-light text-dark border">${s}</span>`).join('') : "No especificados";
 
@@ -214,7 +231,7 @@ window.viewJobDetail = async function(jobId) {
 async function loadMatches() {
     const container = document.getElementById("matchesList");
     const counterBadge = document.getElementById("matchCount");
-    
+
     try {
         // json-server permite expandir relaciones. Usamos _expand para traer datos del job
         // Nota: Asumimos que el match tiene jobId y companyId
@@ -223,11 +240,11 @@ async function loadMatches() {
 
         // Filtramos solo los pendientes para la vista principal
         const pendingMatches = matches.filter(m => m.status === 'pending');
-        
+
         // Actualizar contador
         counterBadge.innerText = pendingMatches.length;
-        if(pendingMatches.length > 0) counterBadge.classList.remove('d-none');
-        
+        if (pendingMatches.length > 0) counterBadge.classList.remove('d-none');
+
         container.innerHTML = "";
 
         if (pendingMatches.length === 0) {
@@ -271,9 +288,9 @@ async function loadMatches() {
     }
 }
 
-window.respondMatch = async function(matchId, newStatus) {
+window.respondMatch = async function (matchId, newStatus) {
     const actionText = newStatus === 'contacted' ? 'Aceptar' : 'Rechazar';
-    
+
     const result = await Swal.fire({
         title: `¿${actionText} solicitud?`,
         text: newStatus === 'contacted' ? "La empresa recibirá tus datos de contacto." : "Esta oferta desaparecerá de tu lista.",
@@ -290,7 +307,7 @@ window.respondMatch = async function(matchId, newStatus) {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ status: newStatus })
             });
-            
+
             Swal.fire("Listo", `Solicitud ${newStatus === 'contacted' ? 'aceptada' : 'rechazada'}.`, "success");
             loadMatches(); // Recargar lista
         } catch (error) {

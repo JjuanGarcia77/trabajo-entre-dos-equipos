@@ -42,11 +42,12 @@
         "city": "Medellin",
         "yearsOfExperience": "4",
         "birthdate": "2005-12-22",
-        "phone": "2063446",
+        "phone": "422224444",
         "skills": [
           "JavaScript",
           "node",
-          "HTML"
+          "HTML",
+          "SZS"
         ],
         "openToWork": true
       }
@@ -73,6 +74,45 @@
     }
   ],
   "jobs": [
+    {
+      "id": "j1",
+      "companyId": "a197",
+      "companyName": "Tech Innovations",
+      "title": "Junior Web Designer",
+      "description": "Buscamos diseñador con conocimientos en UI/UX.",
+      "skills": [
+        "Figma",
+        "CSS",
+        "HTML"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "j1",
+      "companyId": "a197",
+      "companyName": "Tech Innovations",
+      "title": "Junior Web Designer",
+      "description": "Buscamos diseñador con conocimientos en UI/UX.",
+      "skills": [
+        "Figma",
+        "CSS",
+        "HTML"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "j1",
+      "companyId": "a197",
+      "companyName": "Tech Innovations",
+      "title": "Junior Web Designer",
+      "description": "Buscamos diseñador con conocimientos en UI/UX.",
+      "skills": [
+        "Figma",
+        "CSS",
+        "HTML"
+      ],
+      "status": "active"
+    },
     {
       "id": "j1",
       "companyId": "a197",
