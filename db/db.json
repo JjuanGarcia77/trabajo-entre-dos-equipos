@@ -50,6 +50,26 @@
         ],
         "openToWork": true
       }
+    },
+    {
+      "role": "candidate",
+      "email": "prueba1@gmail.com",
+      "password": "123",
+      "name": "luis",
+      "candidateProfile": {
+        "title": "Analista de empanadas",
+        "city": "Chigorodo",
+        "yearsOfExperience": "32",
+        "birthdate": "1989-01-31",
+        "phone": "312530428",
+        "skills": [
+          "masas",
+          "corte de empanada",
+          "AI"
+        ],
+        "openToWork": true
+      },
+      "id": "V2JDX10"
     }
   ],
   "jobs": [
