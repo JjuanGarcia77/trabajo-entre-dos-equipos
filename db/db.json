@@ -1,48 +1,48 @@
 {
-  "users": [
-    {
-      "id": "da30",
-      "username": "juanda",
-      "email": "aaaa@gmail.com",
-      "password": "123",
-      "role": "company",
-      "companyName": "nice",
-      "companyDesc": "esdasdadsa"
-    },
-    {
-      "id": "d345",
-      "username": "eeee",
-      "email": "eeee@gmail.com",
-      "password": "123",
-      "role": "user"
-    },
-    {
-      "id": "ebaa",
-      "username": "eeeee",
-      "email": "eeeee@gmail.com",
-      "password": "123",
-      "role": "user"
-    },
-    {
-      "id": "c117",
-      "username": "aa",
-      "email": "aa@gmail.com",
-      "password": "aa",
-      "role": "user"
-    },
-    {
-      "id": "3e4b",
-      "username": "fff",
-      "email": "fff@gmail.com",
-      "password": "123",
-      "role": "user"
-    },
-    {
-      "id": "b2f9",
-      "username": "dddd",
-      "email": "123@gmail.com",
-      "password": "123",
-      "role": "user"
-    }
-  ]
+    "users": [
+        {
+            "id": "da30",
+            "username": "juanda",
+            "email": "aaaa@gmail.com",
+            "password": "123",
+            "role": "company",
+            "companyName": "nice",
+            "companyDesc": "esdasdadsa"
+        },
+        {
+            "id": "d345",
+            "username": "eeee",
+            "email": "eeee@gmail.com",
+            "password": "123",
+            "role": "user"
+        },
+        {
+            "id": "ebaa",
+            "username": "eeeee",
+            "email": "eeeee@gmail.com",
+            "password": "123",
+            "role": "user"
+        },
+        {
+            "id": "c117",
+            "username": "aa",
+            "email": "aa@gmail.com",
+            "password": "aa",
+            "role": "user"
+        },
+        {
+            "id": "3e4b",
+            "username": "fff",
+            "email": "fff@gmail.com",
+            "password": "123",
+            "role": "user"
+        },
+        {
+            "id": "b2f9",
+            "username": "dddd",
+            "email": "123@gmail.com",
+            "password": "123",
+            "role": "user"
+        }
+    ]
 }
