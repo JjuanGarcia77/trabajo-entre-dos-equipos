@@ -1,164 +1,41 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "role": "candidate",
-      "email": "juan@mail.com",
-      "password": "123456",
-      "name": "Juan",
-      "lastname": "Pérez",
-      "candidateProfile": {
-        "title": "Frontend Developer",
-        "skills": ["HTML", "CSS", "JavaScript"],
-        "years of experience": "5",
-        "openToWork": true,
-        "city": "Medellín",
-        "birthdate": "2000-01-15",
-        "email": "juan@mail.com",
-        "phone": "+549111111111"
-      }
-    },
-    {
-      "id": 2,
-      "role": "candidate",
-      "email": "ana@mail.com",
-      "password": "123456",
-      "name": "Ana",
-      "lastname": "Gómez",
-      "candidateProfile": {
-        "title": "Backend Developer",
-        "skills": ["Node.js", "Express", "MongoDB"],
-        "years of experience": "3",
-        "openToWork": true,
-        "city": "Bogotá",
-        "birthdate": "1998-06-22",
-        "email": "ana@mail.com",
-        "phone": "+5712222222"
-      }
-    },
-    {
-      "id": 3,
-      "role": "candidate",
-      "email": "carlos@mail.com",
-      "password": "123456",
-      "name": "Carlos",
-      "lastname": "Ramírez",
-      "candidateProfile": {
-        "title": "Fullstack Developer",
-        "skills": ["React", "Node.js", "PostgreSQL"],
-        "years of experience": "4",
-        "openToWork": false,
-        "city": "Cali",
-        "birthdate": "1997-09-10",
-        "email": "carlos@mail.com",
-        "phone": "+5723333333"
-      }
-    },
-    {
-      "id": 4,
-      "role": "company",
-      "email": "empresa@crudzaso.com",
-      "password": "123456",
-      "name": "David",
-      "lastname": "Lopez",
-      "companyname": "Crudzaso",
-      "description": "Plataforma de contratación Match-first"
-    },
-    {
-      "id": 5,
-      "role": "company",
-      "email": "talento@techcorp.com",
-      "password": "123456",
-      "name": "Laura",
-      "lastname": "Martínez",
-      "companyname": "TechCorp",
-      "description": "Empresa de soluciones tecnológicas"
-    }
-  ],
-
-  "jobs": [
-    {
-      "id": 1,
-      "title": "Frontend Developer",
-      "companyId": 4,
-      "companyName": "Crudzaso",
-      "description": "Desarrollo de interfaces web",
-      "active": true
-    },
-    {
-      "id": 2,
-      "title": "Backend Developer",
-      "companyId": 4,
-      "companyName": "Crudzaso",
-      "description": "APIs y lógica de negocio",
-      "active": true
-    },
-    {
-      "id": 3,
-      "title": "Fullstack Developer",
-      "companyId": 5,
-      "companyName": "TechCorp",
-      "description": "Desarrollo frontend y backend",
-      "active": true
-    },
-    {
-      "id": 4,
-      "title": "QA Tester",
-      "companyId": 5,
-      "companyName": "TechCorp",
-      "description": "Pruebas funcionales y automatizadas",
-      "active": false
-    },
-    {
-      "id": 5,
-      "title": "DevOps Engineer",
-      "companyId": 5,
-      "companyName": "TechCorp",
-      "description": "Infraestructura y CI/CD",
-      "active": true
-    }
-  ],
-
-  "matches": [
-    {
-      "id": 1,
-      "candidateId": 1,
-      "companyId": 4,
-      "jobId": 1,
-      "status": "pending",
-      "createdAt": "2026-01-01T10:00:00Z"
-    },
-    {
-      "id": 2,
-      "candidateId": 2,
-      "companyId": 4,
-      "jobId": 2,
-      "status": "contactado",
-      "createdAt": "2026-01-02T11:30:00Z"
-    },
-    {
-      "id": 3,
-      "candidateId": 3,
-      "companyId": 5,
-      "jobId": 3,
-      "status": "entrevista",
-      "createdAt": "2026-01-03T09:15:00Z"
-    },
-    {
-      "id": 4,
-      "candidateId": 1,
-      "companyId": 5,
-      "jobId": 5,
-      "status": "descartado",
-      "createdAt": "2026-01-04T14:45:00Z"
-    },
-    {
-      "id": 5,
-      "candidateId": 2,
-      "companyId": 5,
-      "jobId": 3,
-      "status": "contratado",
-      "createdAt": "2026-01-05T16:20:00Z"
-    }
-  ]
+    "users": [
+        {
+            "id": "a197",
+            "role": "company",
+            "email": "juanda@gmail.com",
+            "password": "123",
+            "name": "juan",
+            "lastname": "",
+            "companyname": "111",
+            "description": "11"
+        },
+        {
+            "id": "154a",
+            "role": "candidate",
+            "email": "eeee@gmail.com",
+            "password": "123",
+            "name": "eeee",
+            "lastname": "",
+            "candidateProfile": {
+                "title": "",
+                "skills": [],
+                "openToWork": true
+            }
+        },
+        {
+            "id": "759d",
+            "role": "candidate",
+            "email": "pedrito@gmail.com",
+            "password": "123",
+            "name": "pedrito",
+            "candidateProfile": {
+                "title": "",
+                "skills": [],
+                "openToWork": true
+            }
+        }
+    ],
+    "jobs": [],
+    "matches": []
 }
