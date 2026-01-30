@@ -1,0 +1,10 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.logo-hex {
+  width: 24px;
+  height: 24px;
+  background-color: #0d6efd;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
