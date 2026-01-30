@@ -1,6 +1,5 @@
 const API_USERS = "http://localhost:3000/users";
 
-// --- TRANSICIONES ---
 function showRegister() {
     document.getElementById("loginForm").classList.remove("show");
     setTimeout(() => {
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const formRegister = document.getElementById('formRegister');
     const formLogin = document.getElementById('formLogin');
 
-    // Manejo de campos extra para empresa
     if (roleSelectReg) {
         roleSelectReg.addEventListener('change', function () {
             if (this.value === 'company') {
@@ -38,14 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // REGISTRO BASADO EN TU JSON
     if (formRegister) {
         formRegister.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const email = document.getElementById('emailReg').value.trim();
             const password = document.getElementById('passReg').value.trim();
-            const name = document.getElementById('userReg').value.trim(); // Usado como nombre
+            const name = document.getElementById('userReg').value.trim();
             const role = roleSelectReg.value;
 
             if (!email || !password || !name || !role) {
@@ -53,14 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             try {
-                // Verificar si el email existe
                 const check = await fetch(`${API_USERS}?email=${email}`);
                 const exists = await check.json();
                 if (exists.length > 0) {
                     return Swal.fire({ icon: "warning", title: "Email ya registrado", heightAuto: false });
                 }
 
-                // Estructura según tu JSON
                 let newUser = {
                     role,
                     email,
@@ -91,16 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // LOGIN BASADO EN TU JSON
     if (formLogin) {
         formLogin.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const emailInp = document.getElementById('userLogin').value.trim(); // Tomamos el input de usuario como email
+            const emailInp = document.getElementById('userLogin').value.trim();
             const passInp = document.getElementById('passLogin').value.trim();
             const roleInp = document.getElementById('roleSelectLogin').value;
 
             try {
-                // Buscamos por email y password
                 const res = await fetch(`${API_USERS}?email=${emailInp}&password=${passInp}&role=${roleInp}`);
                 const data = await res.json();
 
