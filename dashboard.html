@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatchFlow Dashboard | Crudzaso</title>
+    <style>
+        /* --- ESTILOS INTEGRADOS --- */
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --bg: #f8fafc;
+            --success: #22c55e;
+            --danger: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            color: var(--dark);
+        }
+
+        .dashboard-header {
+            background: white;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-nav {
+            padding: 10px 18px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-nav.active {
+            background: var(--dark);
+            color: white;
+            border-color: var(--dark);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        #cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 180px;
+        }
+
+        .card-candidate { border-left: 5px solid var(--success); }
+        .card-candidate.reserved { border-left-color: var(--danger); opacity: 0.7; }
+        .card-company { border-top: 5px solid var(--primary); }
+
+        .badge {
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .badge-open { background: #dcfce7; color: #166534; }
+        .badge-reserved { background: #fee2e2; color: #991b1b; }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .btn-disabled {
+            background: #e2e8f0;
+            color: #94a3b8;
+            cursor: not-allowed;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="dashboard-header">
+        <h1 style="font-size: 1.4rem;">MatchFlow <span style="color: var(--primary);">•</span></h1>
+        <div class="nav-buttons">
+            <button onclick="renderView('candidates')" class="btn-nav active" id="btn-candidates">Candidatos</button>
+            <button onclick="renderView('companies')" class="btn-nav" id="btn-companies">Compañías</button>
+        </div>
+    </header>
+
+    <main>
+        <h2 id="view-title">Cargando...</h2>
+        <div id="cards-container"></div>
+    </main>
+
+    <script src="../"></script>
+</body>
+</html>
