@@ -4,32 +4,27 @@
     const path = window.location.pathname;
 
     const publicPages = ['index.html', 'login.html'];
-    const isPublic = publicPages.some(page => path.includes(page)) || path === '/';
 
-    if (!auth && !isPublic) {
-        window.location.href = 'login.html';
-        return;
+    if (!auth && !publicPages.some(p => path.includes(p))) {
+        return window.location.href = 'login.html';
     }
 
-    if (auth && isPublic) {
-        window.location.href = role === 'company'
-            ? 'company.html'
-            : 'candidate.html';
-        return;
+    if (auth && publicPages.some(p => path.includes(p))) {
+        if (role === 'admin') return window.location.href = 'dashboard.html';
+        if (role === 'company') return window.location.href = 'company.html';
+        return window.location.href = 'candidate.html';
     }
 
-    if (auth) {
-        if (role === 'candidate') {
-            if (!path.includes('candidate.html')) {
-                window.location.href = 'candidate.html';
-            }
-        }
+    if (role === 'admin' && !path.includes('dashboard.html')) {
+        return window.location.href = 'dashboard.html';
+    }
 
-        if (role === 'company') {
-            if (path.includes('candidate.html')) {
-                window.location.href = 'company.html';
-            }
-        }
+    if (role === 'company' && !path.includes('company.html')) {
+        return window.location.href = 'company.html';
+    }
+
+    if (role === 'candidate' && !path.includes('candidate.html')) {
+        return window.location.href = 'candidate.html';
     }
 })();
 

@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-if (formLogin) {
+    if (formLogin) {
         formLogin.addEventListener('submit', async (e) => {
             e.preventDefault();
             const emailInp = document.getElementById('userLogin').value.trim();
@@ -99,18 +99,22 @@ if (formLogin) {
 
                 if (data.length > 0) {
                     const user = data[0];
-                    
-                    // --- AQUÍ ESTABA EL ERROR: FALTABA GUARDAR currentUser ---
+
                     localStorage.setItem('isAuthenticated', 'true');
                     localStorage.setItem('userRole', user.role);
                     localStorage.setItem('userId', user.id);
-                    localStorage.setItem('currentUser', JSON.stringify(user)); // <--- ESTA LÍNEA ES LA CLAVE
-                    // ---------------------------------------------------------
+                    localStorage.setItem('currentUser', JSON.stringify(user));
 
                     Swal.fire({ icon: "success", title: `Bienvenido ${user.name}`, showConfirmButton: false, timer: 1500, heightAuto: false })
-                    .then(() => {
-                        window.location.replace(user.role === 'company' ? "company.html" : "candidate.html");
-                    });
+                        .then(() => {
+                            if (user.role === 'admin') {
+                                window.location.replace("dashboard.html");
+                            } else if (user.role === 'company') {
+                                window.location.replace("company.html");
+                            } else {
+                                window.location.replace("candidate.html");
+                            }
+                        });
                 } else {
                     Swal.fire({ icon: "error", title: "Credenciales inválidas", text: "Verifique email, clave y perfil", heightAuto: false });
                 }
