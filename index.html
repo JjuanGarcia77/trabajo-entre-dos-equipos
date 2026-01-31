@@ -9,16 +9,19 @@
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
+  <script src="./js/index.js"></script>
+</head>
+<body>
   <!-- Navbar -->
   <nav class="navbar navbar-light bg-white px-4 py-3 border-bottom">
     <a class="navbar-brand d-flex align-items-center" href="#">
-      <div class="logo-hex me-2"></div>
+      <img src="img/logo.png" alt="Logo Camello" class="logo-camello me-2" />
       <span class="fw-bold">Busca Camello</span>
     </a>
-    <div class="position-fixed top-0 start-0 p-3">
-        <button onclick="goBack()" class="btn btn-back">
-            <i class="bi bi-arrow-left-circle me-2"></i>Ir al Login
-        </button>
+    <div class="ms-auto">
+      <button onclick="goBack()" class="btn btn-back">
+        <i class="bi bi-arrow-left-circle me-2"></i>Ir al Login
+      </button>
     </div>
   </nav>
 
@@ -72,38 +75,7 @@
   <!-- Ofertas -->
   <section class="container py-5">
     <h4 class="mb-4">Ofertas destacadas</h4>
-
-    <div class="job-card mb-3 p-3 border rounded d-flex justify-content-between align-items-center">
-      <div>
-        <h5 class="mb-1">Asistente administrativo</h5>
-        <p class="mb-0 text-muted">Empresa S.A. — Medellín</p>
-      </div>
-      <button class="btn btn-outline-dark">Postular</button>
-    </div>
-
-    <div class="job-card mb-3 p-3 border rounded d-flex justify-content-between align-items-center">
-      <div>
-        <h5 class="mb-1">Representante de ventas</h5>
-        <p class="mb-0 text-muted">Comercializadora LTDA — Bogotá</p>
-      </div>
-      <button class="btn btn-outline-dark">Postular</button>
-    </div>
-
-    <div class="job-card mb-3 p-3 border rounded d-flex justify-content-between align-items-center">
-      <div>
-        <h5 class="mb-1">Desarrollador web</h5>
-        <p class="mb-0 text-muted">Soluciones Tech — Cali</p>
-      </div>
-      <button class="btn btn-outline-dark">Postular</button>
-    </div>
-
-    <div class="job-card mb-3 p-3 border rounded d-flex justify-content-between align-items-center">
-      <div>
-        <h5 class="mb-1">Servicio al cliente</h5>
-        <p class="mb-0 text-muted">Talento Humano — Barranquilla</p>
-      </div>
-      <button class="btn btn-outline-dark">Postular</button>
-    </div>
+    <div class="ofertas-destacadas"></div>
   </section>
 
   <!-- Footer -->
@@ -117,7 +89,7 @@
         <div class="col-md-4 mb-3">
           <h6>Enlaces útiles</h6>
           <ul class="list-unstyled">
-            <li><a href="#" class="text-white text-decoration-none">Sobre nosotros</a></li>
+            <li><a href="#" class="text-white text-decoration-none sobre-nosotros-link">Sobre nosotros</a></li>
             <li><a href="#" class="text-white text-decoration-none">Contacto</a></li>
             <li><a href="#" class="text-white text-decoration-none">Términos y condiciones</a></li>
           </ul>

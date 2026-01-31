@@ -1,10 +1,70 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
 }
 
-.logo-hex {
-  width: 24px;
-  height: 24px;
-  background-color: #0d6efd;
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+:root {
+  --marron: #6F4E37;
+  --negro: #000000;
+  --blanco: #ffffff;
+  --gris-claro: #f8f9fa;
 }
+
+
+/* Logo camello */
+.logo-camello {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  margin-right: 8px;
+}
+
+
+.empresa-info-hover {
+  transition: opacity 0.2s;
+  min-width: 220px;
+  font-size: 0.97rem;
+}
+
+/* Colores principales para index */
+body, .bg-light {
+  background-color: var(--gris-claro) !important;
+}
+
+.navbar, .navbar.bg-white {
+  background-color: var(--blanco) !important;
+  border-bottom: 2px solid var(--marron) !important;
+}
+
+.navbar .navbar-brand .fw-bold {
+  color: var(--marron) !important;
+}
+
+.btn-back, .btn-dark, .btn-outline-dark {
+  background-color: var(--marron) !important;
+  color: var(--blanco) !important;
+  border: none !important;
+}
+
+.btn-outline-dark {
+  background: var(--blanco) !important;
+  color: var(--marron) !important;
+  border: 2px solid var(--marron) !important;
+}
+
+.btn-outline-dark:hover, .btn-back:hover, .btn-dark:hover {
+  background-color: var(--negro) !important;
+  color: var(--blanco) !important;
+}
+
+.job-card {
+  border-color: var(--marron) !important;
+}
+
+footer.bg-dark {
+  background: var(--marron) !important;
+}
+
+footer .text-white, footer .text-white a {
+  color: var(--blanco) !important;
+}
+
