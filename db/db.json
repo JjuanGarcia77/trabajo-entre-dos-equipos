@@ -1,6 +1,13 @@
 {
   "users": [
     {
+      "id": "admin01",
+      "role": "admin",
+      "email": "admin@busca.com",
+      "password": "admin123",
+      "name": "Administrador"
+    },
+    {
       "id": "a197",
       "role": "company",
       "email": "juanda@gmail.com",
@@ -186,7 +193,7 @@
         "telemercadeo",
         "deportista de alto rendimiento"
       ],
-      "status": "inactive"
+      "status": "active"
     }
   ],
   "matches": [
@@ -219,6 +226,16 @@
       "isReserved": true,
       "reservationDate": "2026-01-30",
       "notes": "trapear la calle"
+    },
+    {
+      "id": "match_1769825786279",
+      "companyId": "128c",
+      "jobId": "job_1769824395511",
+      "candidateId": "V2JDX10",
+      "status": "pending",
+      "isReserved": true,
+      "reservationDate": "2026-01-31",
+      "notes": "sin observaciones"
     }
   ]
 }
