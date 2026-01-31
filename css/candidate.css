@@ -1,0 +1,51 @@
+:root {
+    --marron-light: rgba(111, 78, 55, 0.1);
+}
+
+body {
+    background-color: #f0f2f5;
+    overflow-y: auto !important; /* Permitir scroll en dashboard */
+}
+
+.navbar {
+    background: white;
+}
+
+.status-box {
+    transition: all 0.3s ease;
+    border: 2px dashed #ccc;
+}
+
+.status-active {
+    background-color: #d1e7dd;
+    border-color: #198754;
+    color: #0f5132;
+}
+
+.status-inactive {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #842029;
+}
+
+.job-card {
+    border-left: 5px solid var(--marron);
+    transition: transform 0.2s;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+}
+
+.badge-skill {
+    background-color: var(--marron-light);
+    color: var(--marron);
+    margin-right: 5px;
+    font-size: 0.75rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+}

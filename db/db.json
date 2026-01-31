@@ -1,0 +1,141 @@
+{
+  "users": [
+    {
+      "id": "a197",
+      "role": "company",
+      "email": "juanda@gmail.com",
+      "password": "123",
+      "name": "juan",
+      "lastname": "",
+      "companyname": "111",
+      "description": "11"
+    },
+    {
+      "id": "154a",
+      "role": "candidate",
+      "email": "eeee@gmail.com",
+      "password": "123",
+      "name": "eeee",
+      "lastname": "",
+      "candidateProfile": {
+        "title": "Frontend Developer",
+        "skills": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "yearsOfExperience": "5",
+        "openToWork": true,
+        "city": "Medellín",
+        "birthdate": "2000-01-15",
+        "phone": "+549111111111"
+      }
+    },
+    {
+      "id": "759d",
+      "role": "candidate",
+      "email": "pedrito@gmail.com",
+      "password": "123",
+      "name": "pedrito",
+      "candidateProfile": {
+        "title": "Analisis de Datos",
+        "city": "Medellin",
+        "yearsOfExperience": "4",
+        "birthdate": "2005-12-22",
+        "phone": "422224444",
+        "skills": [
+          "JavaScript",
+          "node",
+          "HTML",
+          "SZS"
+        ],
+        "openToWork": true
+      }
+    },
+    {
+      "role": "candidate",
+      "email": "prueba1@gmail.com",
+      "password": "123",
+      "name": "luis",
+      "candidateProfile": {
+        "title": "Analista de empanadas",
+        "city": "Chigorodo",
+        "yearsOfExperience": "32",
+        "birthdate": "1989-01-31",
+        "phone": "312530428",
+        "skills": [
+          "masas",
+          "corte de empanada",
+          "AI"
+        ],
+        "openToWork": true
+      },
+      "id": "V2JDX10"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "j1",
+      "companyId": "a197",
+      "companyName": "Tech Innovations",
+      "title": "Junior Web Designer",
+      "description": "Buscamos diseñador con conocimientos en UI/UX.",
+      "skills": [
+        "Figma",
+        "CSS",
+        "HTML"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "j1",
+      "companyId": "a197",
+      "companyName": "Tech Innovations",
+      "title": "Junior Web Designer",
+      "description": "Buscamos diseñador con conocimientos en UI/UX.",
+      "skills": [
+        "Figma",
+        "CSS",
+        "HTML"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "j1",
+      "companyId": "a197",
+      "companyName": "Tech Innovations",
+      "title": "Junior Web Designer",
+      "description": "Buscamos diseñador con conocimientos en UI/UX.",
+      "skills": [
+        "Figma",
+        "CSS",
+        "HTML"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "j1",
+      "companyId": "a197",
+      "companyName": "Tech Innovations",
+      "title": "Junior Web Designer",
+      "description": "Buscamos diseñador con conocimientos en UI/UX.",
+      "skills": [
+        "Figma",
+        "CSS",
+        "HTML"
+      ],
+      "status": "active"
+    }
+  ],
+  "matches": [
+    {
+      "id": "m2",
+      "companyId": "a197",
+      "jobId": "j1",
+      "candidateId": "759d",
+      "status": "pending",
+      "isReserved": true,
+      "reservationDate": "2026-01-30"
+    }
+  ]
+}
