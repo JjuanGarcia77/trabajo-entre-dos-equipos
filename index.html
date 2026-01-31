@@ -5,18 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portal de Empleo</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <script src="./js/auth.js"></script>
+  <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-light bg-white px-4 py-3 border-bottom">
     <a class="navbar-brand d-flex align-items-center" href="#">
       <div class="logo-hex me-2"></div>
-      <span class="fw-bold">EmpleaYa</span>
+      <span class="fw-bold">Busca Camello</span>
     </a>
-    <div>
-      <a href="#" class="me-3 text-dark text-decoration-none">Login</a>
-      <a href="#" class="text-dark text-decoration-none">Registro</a>
+    <div class="position-fixed top-0 start-0 p-3">
+        <button onclick="goBack()" class="btn btn-back">
+            <i class="bi bi-arrow-left-circle me-2"></i>Ir al Login
+        </button>
     </div>
   </nav>
 
