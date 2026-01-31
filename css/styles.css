@@ -68,3 +68,10 @@ footer .text-white, footer .text-white a {
   color: var(--blanco) !important;
 }
 
+/* Hover para el enlace Sobre nosotros */
+.sobre-nosotros-link:hover {
+  color: var(--marron) !important;
+  text-decoration: underline !important;
+  transition: color 0.2s;
+}
+
