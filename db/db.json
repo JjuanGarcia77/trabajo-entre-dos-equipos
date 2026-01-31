@@ -71,6 +71,36 @@
         "openToWork": true
       },
       "id": "V2JDX10"
+    },
+    {
+      "id": "dc16",
+      "role": "candidate",
+      "email": "juanvisaje@gmail.com",
+      "password": "todonice",
+      "name": "juanito alimaña",
+      "candidateProfile": {
+        "title": "",
+        "skills": [],
+        "openToWork": true
+      }
+    },
+    {
+      "id": "9af4",
+      "role": "company",
+      "email": "charlie123@gmail.com",
+      "password": "789",
+      "name": "Charlie",
+      "companyname": "elmachetico",
+      "description": "Empresa comercializadora de empanadasss"
+    },
+    {
+      "id": "128c",
+      "role": "company",
+      "email": "luisaleta@gmail.com",
+      "password": "456",
+      "name": "Luis Miguel",
+      "companyname": "Mani Salado S.A.S.",
+      "description": "Empresa comercializadora de mani salado"
     }
   ],
   "jobs": [
@@ -125,9 +155,61 @@
         "HTML"
       ],
       "status": "active"
+    },
+    {
+      "id": "job_1769822724799",
+      "companyId": "9af4",
+      "companyName": "elmachetico",
+      "title": "Vendedor de empanadas",
+      "description": "habilidades para la vida",
+      "skills": [],
+      "status": "active"
+    },
+    {
+      "id": "job_1769824395511",
+      "companyId": "128c",
+      "companyName": "Mani Salado S.A.S.",
+      "title": "Vendedor de mani",
+      "description": "experto en las artes de vender mani",
+      "skills": [],
+      "status": "active"
+    },
+    {
+      "id": "job_1769825080975",
+      "companyId": "128c",
+      "companyName": "Mani Salado S.A.S.",
+      "title": "vendedor de mani dulce",
+      "description": "experto en el arte de vender mani dulce",
+      "skills": [
+        "mani",
+        "dulce",
+        "telemercadeo",
+        "deportista de alto rendimiento"
+      ],
+      "status": "inactive"
     }
   ],
   "matches": [
+    {
+      "id": "match_1769822901991",
+      "companyId": "9af4",
+      "jobId": "job_1769822724799",
+      "candidateId": "759d",
+      "status": "pending",
+      "isReserved": true,
+      "reservationDate": "2026-01-31",
+      "notes": "vender empanadas de carne pollo y cerdo"
+    },
+    {
+      "id": "match_1769823294583",
+      "companyId": "9af4",
+      "jobId": "job_1769822724799",
+      "candidateId": "dc16",
+      "status": "pending",
+      "isReserved": true,
+      "reservationDate": "2026-01-31",
+      "notes": "trapear la calle"
+    },
     {
       "id": "m2",
       "companyId": "a197",
@@ -135,7 +217,8 @@
       "candidateId": "759d",
       "status": "pending",
       "isReserved": true,
-      "reservationDate": "2026-01-30"
+      "reservationDate": "2026-01-30",
+      "notes": "trapear la calle"
     }
   ]
 }
