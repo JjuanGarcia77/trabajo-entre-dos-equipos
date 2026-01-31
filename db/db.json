@@ -1,6 +1,13 @@
 {
   "users": [
     {
+      "id": "admin01",
+      "role": "admin",
+      "email": "admin@busca.com",
+      "password": "admin123",
+      "name": "Administrador"
+    },
+    {
       "id": "a197",
       "role": "company",
       "email": "juanda@gmail.com",
