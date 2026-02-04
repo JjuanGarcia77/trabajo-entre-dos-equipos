@@ -1,0 +1,109 @@
+:root {
+    --main-bg: #f0f2f5;
+    --sidebar-width: 250px;
+    --marron-active: #6F4E37;
+    --text-color: #333;
+}
+
+body {
+    background-color: var(--main-bg);
+    overflow-x: hidden;
+}
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    transition: margin 0.25s ease-out;
+    width: var(--sidebar-width);
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+    color: var(--marron-active);
+}
+
+#sidebar-wrapper .list-group {
+    width: var(--sidebar-width);
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+}
+
+/* Estilos de Tarjetas */
+.card-candidate {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+    background: white;
+}
+
+.card-candidate:hover {
+    transform: translateY(-5px);
+}
+
+.card-blocked {
+    opacity: 0.6;
+    pointer-events: none;
+    border: 2px dashed #dc3545;
+}
+
+.badge-skill {
+    background-color: #e9ecef;
+    color: #495057;
+    font-size: 0.75rem;
+    margin-right: 4px;
+}
+
+/* Sidebar Links */
+.list-group-item {
+    border: none;
+    padding: 20px 30px;
+    font-weight: 500;
+}
+
+.list-group-item.active {
+    color: var(--marron-active) !important;
+    font-weight: bold;
+    border-right: 4px solid var(--marron-active);
+}
+
+.list-group-item-action:hover {
+    color: var(--marron-active);
+    background-color: rgba(111, 78, 55, 0.1) !important;
+}
+
+/* Kanban / Matches */
+.match-card {
+    border-left: 5px solid;
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.status-pending { border-color: #ffc107; }
+.status-contacted { border-color: #0dcaf0; }
+.status-hired { border-color: #198754; }
+.status-discarded { border-color: #dc3545; }
