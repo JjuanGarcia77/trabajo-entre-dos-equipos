@@ -1,19 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./js/auth.js"></script>
+    <title>MatchFlow - Empresas</title>
+    <link rel="stylesheet" href="css/company.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/auth.js"></script>
 </head>
-
 <body>
-    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1000;">
-        <button onclick="logout()" class="btn btn-logout shadow">
-            <i class="bi bi-door-open-fill me-2"></i>Cerrar Sesión
-        </button>
-    </div>
-</body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-building"></i>Panel de Empresas</h1>
+            <div class="user-info">
+                <span id="companyName">Empresa</span>
+                <button id="logoutBtn" class="btn btn-secondary" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </button>
+            </div>
+        </header>
 
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav class="nav-menu">
+                    <button class="nav-btn active" data-section="jobs">
+                        <i class="fas fa-briefcase"></i> Mis Ofertas
+                    </button>
+                    <button class="nav-btn" data-section="candidates">
+                        <i class="fas fa-users"></i> Buscar Candidatos
+                    </button>
+                    <button class="nav-btn" data-section="matches">
+                        <i class="fas fa-handshake"></i> Matches
+                    </button>
+                    <button class="nav-btn" data-section="profile">
+                        <i class="fas fa-building"></i> Perfil Empresa
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Sección: Mis Ofertas -->
+                <section id="jobs-section" class="content-section active">
+                    <div class="section-header">
+                        <h2><i class="fas fa-briefcase"></i> Mis Ofertas de Trabajo</h2>
+                        <button id="newJobBtn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Nueva Oferta
+                        </button>
+                    </div>
+                    <div class="jobs-list" id="jobsList"></div>
+                </section>
+
+                <!-- Sección: Buscar Candidatos -->
+                <section id="candidates-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-users"></i> Candidatos Disponibles</h2>
+                        <div class="search-box">
+                            <input type="text" id="candidateSearch" placeholder="Buscar por habilidades...">
+                            <button id="searchBtn" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="candidates-grid" id="candidatesGrid"></div>
+                </section>
+
+                <!-- Sección: Matches -->
+                <section id="matches-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-handshake"></i> Mis Matches</h2>
+                        <select id="statusFilter" class="filter-select">
+                            <option value="all">Todos los estados</option>
+                            <option value="pending">Pendiente</option>
+                            <option value="contactado">Contactado</option>
+                            <option value="entrevista">Entrevista</option>
+                            <option value="contratado">Contratado</option>
+                            <option value="descartado">Descartado</option>
+                        </select>
+                    </div>
+                    <div class="matches-list" id="matchesList"></div>
+                </section>
+
+                <!-- Sección: Perfil Empresa -->
+                <section id="profile-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-building"></i> Perfil de la Empresa</h2>
+                    </div>
+                    <div class="company-profile" id="companyProfile"></div>
+                </section>
+            </div>
+        </main>
+<!-- Modal para nueva oferta (company.html) -->
+<div id="jobModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3><i class="fas fa-plus"></i> Nueva Oferta de Trabajo</h3>
+            <button class="close-modal" data-modal="jobModal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="jobForm">
+                <div class="form-group">
+                    <label for="jobTitle">Título del puesto:</label>
+                    <input type="text" id="jobTitle" required placeholder="Ej: Frontend Developer Senior">
+                </div>
+                <div class="form-group">
+                    <label for="jobDescription">Descripción:</label>
+                    <textarea id="jobDescription" rows="4" required 
+                        placeholder="Describe las responsabilidades, requisitos y beneficios..."></textarea>
+                </div>
+                <!-- AGREGAR ESTE NUEVO CAMPO -->
+                <div class="form-group">
+                    <label for="jobSkills">Habilidades requeridas:</label>
+                    <input type="text" id="jobSkills" 
+                        placeholder="Separadas por comas: JavaScript, React, Node.js, etc.">
+                    <small class="form-text">Escribe las habilidades separadas por comas</small>
+                </div>
+                <p style="color: #666; font-size: 14px; margin: 10px 0;">
+                    <i class="fas fa-info-circle"></i> La oferta se creará <strong>INACTIVA</strong>. Actívala cuando estés listo.
+                </p>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary close-modal" data-modal="jobModal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Crear Oferta</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+        <!-- Modal para crear match -->
+        <div id="matchModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-handshake"></i> Crear Match</h3>
+                    <button class="close-modal" data-modal="matchModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="matchCandidateInfo"></div>
+                    <form id="matchForm">
+                        <div class="form-group">
+                            <label for="matchJobSelect">Seleccionar oferta:</label>
+                            <select id="matchJobSelect" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="matchNotes">Notas (opcional):</label>
+                            <textarea id="matchNotes" rows="3" placeholder="Agregar notas para el match..."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary close-modal" data-modal="matchModal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Crear Match</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para ver perfil de candidato -->
+        <div id="candidateModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-user"></i> Perfil del Candidato</h3>
+                    <button class="close-modal" data-modal="candidateModal">&times;</button>
+                </div>
+                <div class="modal-body" id="candidateModalBody"></div>
+            </div>
+        </div>
+
+        <!-- Modal para actualizar estado del match -->
+        <div id="statusModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-sync-alt"></i> Actualizar Estado</h3>
+                    <button class="close-modal" data-modal="statusModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="statusCandidateInfo"></div>
+                    <form id="statusForm">
+                        <div class="form-group">
+                            <label for="newStatus">Nuevo estado:</label>
+                            <select id="newStatus" required>
+                                <option value="pending">Pendiente</option>
+                                <option value="contactado">Contactado</option>
+                                <option value="entrevista">Entrevista</option>
+                                <option value="contratado">Contratado</option>
+                                <option value="descartado">Descartado</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="statusNotes">Observaciones:</label>
+                            <textarea id="statusNotes" rows="3" placeholder="Agregar observaciones..."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary close-modal" data-modal="statusModal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Actualizar Estado</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/company.js"></script>
+</body>
 </html>

@@ -235,7 +235,7 @@ async function loadMatches() {
     try {
         // json-server permite expandir relaciones. Usamos _expand para traer datos del job
         // Nota: Asumimos que el match tiene jobId y companyId
-        const response = await fetch(`${API_URL}/matches?candidateId=${currentUser.id}&_expand=job`);
+        const response = await fetch(`${API_URL}/matches?candidateId=${currentUser.id}`);
         const matches = await response.json();
 
         // Filtramos solo los pendientes para la vista principal

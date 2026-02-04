@@ -85,7 +85,7 @@
       "id": "j1",
       "companyId": "a197",
       "companyName": "Tech Innovations",
-      "title": "Junior Web Designer",
+      "title": "Analisis de Datos",
       "description": "Buscamos diseñador con conocimientos en UI/UX.",
       "skills": [
         "Figma",
@@ -98,7 +98,7 @@
       "id": "j1",
       "companyId": "a197",
       "companyName": "Tech Innovations",
-      "title": "Junior Web Designer",
+      "title": "Frontend Developer",
       "description": "Buscamos diseñador con conocimientos en UI/UX.",
       "skills": [
         "Figma",
@@ -136,13 +136,24 @@
   ],
   "matches": [
     {
-      "id": "m2",
+      "id": "match_1770169231871",
       "companyId": "a197",
       "jobId": "j1",
       "candidateId": "759d",
       "status": "pending",
       "isReserved": true,
-      "reservationDate": "2026-01-30"
+      "reservationDate": "2026-02-04",
+      "notes": ""
+    },
+    {
+      "id": "match_1770170005097",
+      "companyId": "a197",
+      "jobId": "j1",
+      "candidateId": "154a",
+      "status": "pending",
+      "isReserved": true,
+      "reservationDate": "2026-02-04",
+      "notes": ""
     }
   ]
 }
