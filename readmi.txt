@@ -1,2 +1,4 @@
 correo del admin: admin@busca.com
 contraseña del admin: admin123
+para correr el json-server es : npm run json
+esto se aplica en el package.json

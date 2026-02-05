@@ -78,6 +78,27 @@
         "openToWork": true
       },
       "id": "V2JDX10"
+    },
+    {
+      "id": "5fc6",
+      "role": "candidate",
+      "email": "juan@mail.com",
+      "password": "123",
+      "name": "juan",
+      "candidateProfile": {
+        "title": "",
+        "skills": [],
+        "openToWork": true
+      }
+    },
+    {
+      "id": "a844",
+      "role": "company",
+      "email": "eeeee@gmail.com",
+      "password": "123",
+      "name": "eeee",
+      "companyname": "111",
+      "description": "dadaad"
     }
   ],
   "jobs": [
